@@ -1,0 +1,32 @@
+[package]
+name = "c3"
+version = "0.1.0"
+authors = ["Phạm Văn Dũng <dung18j@gmail.com>"]
+edition = "2021"
+resolver = "2"
+
+[profile.release]
+opt-level = "s"
+
+[profile.dev]
+debug = true # Symbols are nice and they don't increase the size on Flash
+opt-level = "z"
+
+[dependencies]
+esp-idf-sys = { version = "0.31.6", features = ["binstart"] }
+esp-idf-svc = { version = "0.42.1", features = ["isr-async-executor"] }
+embedded-svc = { version = "0.22.0", features = ["isr-async-executor"] }
+esp-idf-hal = "0.38.0"
+embedded-hal = "0.2.7"
+heapless = "0.7.15"
+async-executor = "1.4.1"
+futures-lite = "1.12.0"
+async-channel = "1.6.1"
+event-listener = "2.5.3"
+spin_on = "0.1.1"
+futures-micro = "0.5.0"
+liot = { version = "0.1.0", path = "../liot" }
+
+[build-dependencies]
+embuild = "0.29"
+anyhow = "1"
